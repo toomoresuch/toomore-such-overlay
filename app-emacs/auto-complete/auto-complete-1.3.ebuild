@@ -10,12 +10,12 @@ SRC_URI="http://cx4a.org/pub/auto-complete/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 s390 sh sparc ~sparc-fbsd x86 ~x86-fbsd"
 IUSE=""
 
 src_install() {
-	elisp_src_install
+    elisp_src_install
 
-	insinto "${SITEETC}/${PN}"
-	doins -r dict || die "doins failed"
+    insinto "${SITEETC}/${PN}"
+    doins -r dict || die "doins failed"
 }
