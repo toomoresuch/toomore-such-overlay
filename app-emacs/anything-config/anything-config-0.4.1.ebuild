@@ -4,18 +4,20 @@
 
 inherit elisp
 
-DESCRIPTION="Open anything - QuickSilver-like candidate-selection framework"
-HOMEPAGE="http://www.emacswiki.org/emacs/Anything"
-SRC_URI="http://www.emacswiki.org/emacs/download/anything.el"
+DESCRIPTION="Predefined configurations for app-emacs/anything"
+HOMEPAGE="http://www.emacswiki.org/emacs/anything-config.el"
+SRC_URI="http://www.emacswiki.org/emacs/download/anything-config.el"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 s390 sh sparc ~sparc-fbsd x86 ~x86-fbsd"
 IUSE=""
 
-DEPEND="app-emacs/fit-frame"
+DEPEND="app-emacs/anything-match-plugin"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
     cp ${DISTDIR}/${PN}.el ${WORKDIR}/
 }
+
+SITEFILE=50${PN}-gentoo.el
