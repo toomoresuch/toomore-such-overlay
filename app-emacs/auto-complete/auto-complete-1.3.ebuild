@@ -19,3 +19,5 @@ src_install() {
     insinto "${SITEETC}/${PN}"
     doins -r dict || die "doins failed"
 }
+
+SITEFILE=99${PN}-gentoo.el
