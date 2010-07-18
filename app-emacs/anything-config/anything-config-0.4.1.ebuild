@@ -13,7 +13,8 @@ SLOT="0"
 KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 s390 sh sparc ~sparc-fbsd x86 ~x86-fbsd"
 IUSE=""
 
-DEPEND="app-emacs/anything-match-plugin"
+DEPEND="app-emacs/anything-match-plugin
+app-emacs/anything-show-completion"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
