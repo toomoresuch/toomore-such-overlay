@@ -2,11 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit elisp
+inherit elisp git
 
 DESCRIPTION="Auto-complete package"
 HOMEPAGE="http://github.com/m2ym/auto-complete/"
-SRC_URI="http://cx4a.org/pub/auto-complete/${P}.tar.bz2"
+SRC_URI=""  #http://cx4a.org/pub/auto-complete/${P}.tar.bz2
+
+EGIT_REPO_URI="http://github.com/m2ym/auto-complete.git"
+EGIT_BRANCH="master"
 
 LICENSE="GPL-3"
 SLOT="0"
