@@ -23,9 +23,9 @@ src_install() {
     fi
 
     insinto "${SITELISP}/${PN}"
+    doins -r ${PN}_2.8.0-${PV}/elisp || die "doins failed"
     doins -r ${PN}_2.8.0-${PV}/bin || die "doins failed"
     doins -r ${PN}_2.8.0-${PV}/lib || die "doins failed"
-    doins -r ${PN}_2.8.0-${PV}/elisp || die "doins failed"
 }
 
 SITEFILE=99${PN}-gentoo.el
