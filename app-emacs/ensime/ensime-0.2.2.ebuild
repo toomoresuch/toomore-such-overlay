@@ -6,18 +6,26 @@ inherit elisp
 
 DESCRIPTION="the ENhanced Scala Interaction Mode for Emacs"
 HOMEPAGE="http://ensime.blogspot.com/"
-SRC_URI="http://github.com/downloads/aemoncannon/ensime/ensime_2.8.0-0.2.2.tar.gz"
+SRC_URI="http://github.com/downloads/aemoncannon/ensime/${PN}_2.8.0-${PV}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
 KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 s390 sh sparc ~sparc-fbsd x86 ~x86-fbsd"
 IUSE=""
 
-src_install() {
-    elisp_src_install
+src_compile() {
+    echo 'pass'
+}
 
-    insinto "${SITEETC}/${PN}"
-    doins -r dict || die "doins failed"
+src_install() {
+    if [ -n "${SITEFILE}" ]; then
+        elisp-site-file-install "${FILESDIR}/${SITEFILE}" || die
+    fi
+
+    insinto "${SITELISP}/${PN}"
+    doins -r ${PN}_2.8.0-${PV}/bin || die "doins failed"
+    doins -r ${PN}_2.8.0-${PV}/lib || die "doins failed"
+    doins -r ${PN}_2.8.0-${PV}/elisp || die "doins failed"
 }
 
 SITEFILE=99${PN}-gentoo.el
