@@ -14,7 +14,7 @@ KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 s390 sh sparc ~sparc-fbsd x86 ~x86
 IUSE=""
 
 DEPEND="app-emacs/windows
-app-emacs/anything"
+app-emacs/anything-config"
 RDEPEND="${DEPEND}"
 
 SITEFILE=99${PN}-gentoo.el
