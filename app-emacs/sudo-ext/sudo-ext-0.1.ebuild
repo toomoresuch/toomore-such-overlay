@@ -16,3 +16,5 @@ IUSE=""
 src_unpack() {
     cp ${DISTDIR}/${PN}.el ${WORKDIR}/
 }
+
+SITEFILE=99${PN}-gentoo.el
