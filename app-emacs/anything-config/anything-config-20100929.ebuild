@@ -24,6 +24,6 @@ RDEPEND="${DEPEND}"
 SITEFILE=50${PN}-gentoo.el
 
 src_unpack() {
-	git_src_unpack ${A}
-	cp ${WORKDIR}/${P}/extensions/anything-show-completion.el ${WORKDIR}/${P}/
+    git_src_unpack ${A}
+    cp ${WORKDIR}/${P}/extensions/anything-show-completion.el ${WORKDIR}/${P}/
 }
