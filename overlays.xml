@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repositories version="1.0">
+  <repo priority="50" quality="experimental" status="unofficial">
+    <name>toomore-such-overlay</name>
+    <description>Gentoo overlay</description>
+    <homepage>http://github.com/toomore-such/toomore-such-overlay</homepage>
+    <owner>
+      <name>toomore-such</name>
+    </owner>
+    <source type="git">git://github.com/toomore-such/toomore-such-overlay.git</source>
+  </repo>
+</repositories>
