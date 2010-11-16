@@ -16,7 +16,7 @@ SLOT="0"
 SITEFILE="50${PN}-gentoo.el"
 
 src_unpack() {
-    mv js2-${PV}.el ${PN}.el
+    cp ${DISTDIR}/js2-${PV}.el ${WORKDIR}/${PN}.el
 }
 
 pkg_postinst() {
