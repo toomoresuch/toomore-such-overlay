@@ -8,13 +8,13 @@ DESCRIPTION="functions for building directory-tree lists."
 HOMEPAGE="ftp://ftp.splode.com/pub/users/friedman/emacs-lisp/dirtree.el"
 SRC_URI="http://www.emacswiki.org/emacs/download/sudo-ext.el"
 
+IUSE=""
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 s390 sh sparc ~sparc-fbsd x86 ~x86-fbsd"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 s390 sh sparc ~sparc-fbsd x86 ~x86-fbsd"
-IUSE=""
+
+SITEFILE=99${PN}-gentoo.el
 
 src_unpack() {
     cp ${DISTDIR}/${PN}.el ${WORKDIR}/
 }
-
-SITEFILE=99${PN}-gentoo.el

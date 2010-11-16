@@ -6,17 +6,16 @@ inherit elisp git
 
 DESCRIPTION="Open anything - QuickSilver-like candidate-selection framework,
 Predefined configurations for app-emacs/anything"
-
 HOMEPAGE="http://repo.or.cz/w/anything-config.git"
 SRC_URI=""
 
 EGIT_REPO_URI="git://repo.or.cz/anything-config.git"
 EGIT_BRANCH="master"
 
+IUSE=""
+KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 s390 sh sparc ~sparc-fbsd x86 ~x86-fbsd"
 LICENSE="GPL-2 GPL-3"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 s390 sh sparc ~sparc-fbsd x86 ~x86-fbsd"
-IUSE=""
 
 DEPEND="app-emacs/fit-frame"
 RDEPEND="${DEPEND}"
