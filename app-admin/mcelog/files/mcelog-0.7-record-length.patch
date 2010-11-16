@@ -1,0 +1,57 @@
+--- mcelog-0.7/mcelog.h	2009-12-10 14:34:36.877140252 +0100
++++ mcelog-0.7/mcelog.h	2009-12-10 14:53:18.042866155 +0100
+@@ -1,15 +1,18 @@
+ 
+ typedef unsigned long long u64;
+ typedef unsigned int u32;
++typedef unsigned short u16;
+ typedef unsigned char u8;
+ 
+ #define __u64 u64
+ #define __u32 u32
++#define __u16 u16
+ #define __u8  u8
+ 
+ /* kernel structure: */
+ 
+ /* Fields are zero when not available */
++#if 0
+ struct mce {
+ 	__u64 status;
+ 	__u64 misc;
+@@ -23,8 +26,34 @@
+ 	__u8  bank;	/* machine check bank */
+ 	__u8  cpu;	/* cpu that raised the error */
+ 	__u8  finished;   /* entry is valid */
+-	__u32 pad;   
++	__u32 extcpu;   /* linux cpu number that detected the error */
++	__u32 socketid;	/* CPU socket ID */
++	__u32 apicid;	/* CPU initial apic ID */
++	__u64 mcgcap;	/* MCGCAP MSR: machine check capabilities of CPU */
+ };
++#else
++struct mce {
++	__u64 status;
++	__u64 misc;
++	__u64 addr;
++	__u64 mcgstatus;
++	__u64 rip;
++	__u64 tsc;	/* cpu time stamp counter */
++	__u64 time;	/* wall time_t when error was detected */
++	__u8  cpuvendor;/* cpu vendor as encoded in system.h */
++	__u8  pad1;
++	__u16 pad2;
++	__u32 cpuid;	/* CPUID 1 EAX */
++	__u8  cs;	/* code segment */
++	__u8  bank;	/* machine check bank */
++	__u8  cpu;	/* cpu number; obsolete; use extcpu now */
++	__u8  finished; /* entry is valid */
++	__u32 extcpu;	/* linux cpu number that detected the error */
++	__u32 socketid;	/* CPU socket ID */
++	__u32 apicid;	/* CPU initial apic ID */
++	__u64 mcgcap;	/* MCGCAP MSR: machine check capabilities of CPU */
++};
++#endif
+ 
+ #define MCE_OVERFLOW 0		/* bit 0 in flags means overflow */
+ 
