@@ -17,10 +17,10 @@ KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 s390 sh sparc ~sparc-fbsd x86 ~x86
 LICENSE="GPL-2 GPL-3"
 SLOT="0"
 
+SITEFILE=50${PN}-gentoo.el
+
 DEPEND="app-emacs/fit-frame"
 RDEPEND="${DEPEND}"
-
-SITEFILE=50${PN}-gentoo.el
 
 src_unpack() {
     git_src_unpack ${A}

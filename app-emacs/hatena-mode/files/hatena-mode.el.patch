@@ -1,0 +1,11 @@
+--- hatena-mode.el
++++ hatena-mode.el	Sun Apr 18 19:16:31 2010
+@@ -151 +151 @@
+-           (list  "^\\(>>\\|<<\\|><\\|>|?|\\||?|<\\)"
++           (list  "^\\(>>\\|<<\\|><\\|>\\(|.+\\)?|?|\\||?|<\\)"
+@@ -323 +323 @@
+-		  "-d" (concat "key=" hatena-usrid)
++		  "-d" (concat "name=" hatena-usrid)
+@@ -550 +550 @@
+-	(re-search-forward "</body>\n</day>" nil t)
++	(re-search-forward "</body>\n" nil t)

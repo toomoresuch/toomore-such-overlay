@@ -13,8 +13,8 @@ KEYWORDS="alpha amd64 arm hppa ia64 ppc ppc64 s390 sh sparc ~sparc-fbsd x86 ~x86
 LICENSE=""
 SLOT="0"
 
+SITEFILE=99${PN}-gentoo.el
+
 DEPEND="app-emacs/windows
 app-emacs/anything-config"
 RDEPEND="${DEPEND}"
-
-SITEFILE=99${PN}-gentoo.el
