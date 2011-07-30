@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit elisp
+inherit eutils elisp
 
 DESCRIPTION="major mode for Hatena::Diary"
 HOMEPAGE="http://d.hatena.ne.jp/hikigaeru/20040617"
@@ -19,13 +19,13 @@ SITEFILE=99${PN}-gentoo.el
 # http://d.hatena.ne.jp/SaitoAtsushi/20100419/1271630105
 src_unpack() {
     unpack ${A}
-    cd "${S}"
+    cd "${WORKDIR}"
     epatch "${FILESDIR}"/hatena-mode.el.patch
 }
 
 src_install() {
     elisp_src_install
 
-    insinto /usr/share/emacs/site-lisp/${PN}
+    insinto ${SITELISP}/${PN}
     doins *.pl || die "doins failed"
 }
