@@ -7,18 +7,17 @@ DESCRIPTION="git flow completion for bash and zsh"
 GITHUB_USER="bobthecow"
 GITHUB_TAG="${PV}"
 SRC_URI="https://github.com/${GITHUB_USER}/${PN}/tarball/${GITHUB_TAG} -> ${P}.tar.gz"
-SRC_HASH="e911aa3"
+SRC_HASH="b399150"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~x86-macos"
 IUSE="+bash zsh"
 
-DEPEND="dev-vcs/gitflow
-	app-shells/bash
-	zsh? ( app-shells/zsh )"
-
-RDEPEND="${DEPEND}"
+RDEPEND="app-shells/bash
+	zsh? ( app-shells/zsh )
+	dev-vcs/gitflow
+	${DEPEND}"
 
 S="${WORKDIR}/${GITHUB_USER}-${PN}-${SRC_HASH}"
 

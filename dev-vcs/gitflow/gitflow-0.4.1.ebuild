@@ -13,35 +13,33 @@ SRC_URI="https://github.com/${GITHUB_USER}/${PN}/tarball/${GITHUB_TAG} -> ${P}.t
 
 LICENSE="AS-IS"
 SLOT="0"
-KEYWORDS="~x86-macos"
+KEYWORDS="~amd64 ~x86 ~x86-macos"
 IUSE="+completion"
 
-DEPEND="completion? ( dev-vcs/git-flow-completion )"
-RDEPEND="${DEPEND}
->=dev-libs/shflags-1.0.3"
+RDEPEND="completion? ( dev-vcs/git-flow-completion )
+	>=dev-libs/shflags-1.0.3"
 
 src_prepare() {
-    cd "${WORKDIR}"/${GITHUB_USER}-${PN}-*
-    S="$(pwd)"
+	cd "${WORKDIR}"/${GITHUB_USER}-${PN}-*
+	S="$(pwd)"
 
-    sed -i \
-        -e '/^export GITFLOW_DIR=/s|$(dirname "$0")|REPLACE_GITFLOW|' \
-        -e "s|REPLACE_GITFLOW|${PORTAGE_CONFIGROOT}usr/libexec/git-flow|" \
-        -e "s|\$GITFLOW_DIR/gitflow-common|${PORTAGE_CONFIGROOT}usr/$(get_libdir)/gitflow-common|" \
-        -e "s|\$GITFLOW_DIR/gitflow-shFlags|${PORTAGE_CONFIGROOT}usr/$(get_libdir)/shflags|" \
-        git-flow || die "sed failed"
+	sed -i \
+		-e '/^export GITFLOW_DIR=/s|$(dirname "$0")|/usr/libexec/git-flow|' \
+		-e "s|\$GITFLOW_DIR/gitflow-common|/usr/$(get_libdir)/gitflow-common|" \
+		-e "s|\$GITFLOW_DIR/gitflow-shFlags|/usr/$(get_libdir)/shflags|" \
+		git-flow || die "sed failed"
 
 }
 
 src_compile() { :; }
 
 src_install() {
-    exeinto /usr/bin
-    doexe git-flow || die "doexe failed"
+	exeinto /usr/bin
+	doexe git-flow || die "doexe failed"
 
-    insinto /usr/libexec/git-flow
-    doins git-flow-* || die "doins failed"
+	insinto /usr/libexec/git-flow
+	doins git-flow-* || die "doins failed"
 
-    dolib gitflow-common || die "dolib failed"
-    dodoc README.mdown
+	dolib gitflow-common || die "dolib failed"
+	dodoc README.mdown
 }
