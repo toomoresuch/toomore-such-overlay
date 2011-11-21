@@ -1,0 +1,13 @@
+diff --git configure configure
+index 59738ff..a45cf3d 100755
+--- configure
++++ configure
+@@ -3640,7 +3640,7 @@ case "$target_os" in
+ 
+     windows=NO
+     exeext=''
+-    soext='.so'
++    soext='.dylib'
+     case $host in
+     *-unknown-cygwin32)
+         { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: GHC does not support the Cygwin target at the moment" >&5

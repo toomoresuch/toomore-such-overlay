@@ -1,0 +1,9 @@
+diff --git libraries/base/base.buildinfo libraries/base/base.buildinfo
+index 609621b..137b5f8 100644
+--- libraries/base/base.buildinfo
++++ libraries/base/base.buildinfo
+@@ -1,3 +1,3 @@
+-extra-lib-dirs: 
++extra-lib-dirs: /usr/lib
+ extra-libraries:  iconv 
+ include-dirs: 
