@@ -1,0 +1,13 @@
+diff --git Portage/EBuild.hs Portage/EBuild.hs
+index 637ccff..b380520 100644
+--- Portage/EBuild.hs
++++ Portage/EBuild.hs
+@@ -45,7 +45,7 @@ ebuildTemplate = EBuild {
+     homepage = "http://hackage.haskell.org/package/${PN}",
+     license = Cabal.UnknownLicense "xxx UNKNOWN xxx",
+     slot = "0",
+-    keywords = ["~amd64","~x86"],
++    keywords = ["~x86-macos"],
+     iuse = [],
+     depend = [],
+     depend_extra = [],

@@ -1,0 +1,12 @@
+diff --git compiler/main/DriverPipeline.hs compiler/main/DriverPipeline.hs
+index 840cdde..84414f9 100644
+--- compiler/main/DriverPipeline.hs
++++ compiler/main/DriverPipeline.hs
+@@ -1564,6 +1564,7 @@ linkBinary dflags o_files dep_packages = do
+ #ifdef darwin_TARGET_OS
+                       ++ framework_path_opts
+                       ++ framework_opts
++                      ++ ["-Wl,-no_compact_unwind"]
+ #endif
+                       ++ pkg_lib_path_opts
+                       ++ main_lib

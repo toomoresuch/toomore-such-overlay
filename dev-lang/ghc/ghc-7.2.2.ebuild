@@ -50,7 +50,7 @@ arch_binaries=""
 
 # various ports:
 #arch_binaries="$arch_binaries x86-fbsd? ( http://code.haskell.org/~slyfox/ghc-x86-fbsd/ghc-bin-${PV}-x86-fbsd.tbz2 )"
-arch_binaries="$arch_binaries x86-macos? ( http://www.haskell.org/ghc/dist/7.0.4/ghc-7.0.4-i386-apple-darwin.tar.bz2 )"
+arch_binaries="$arch_binaries x86-macos? ( http://www.haskell.org/ghc/dist/${PV}/ghc-${PV}-i386-apple-darwin.tar.bz2 )"
 
 # 0 - yet
 yet_binary() {
@@ -303,10 +303,10 @@ src_prepare() {
 				use sparc-solaris && unpack ghc-6.10.4-sparc-sun-solaris2.tar.bz2
 				use x86-solaris && unpack ghc-6.10.4-i386-unknown-solaris2.tar.bz2
 				use ppc-macos && unpack ghc-6.10.1-powerpc-apple-darwin.tar.bz2
-				use x86-macos && unpack ghc-7.0.4-i386-apple-darwin.tar.bz2
+				use x86-macos && unpack ghc-${PV}-i386-apple-darwin.tar.bz2
 				popd > /dev/null
 
-				pushd "${WORKDIR}"/ghc-bin-installer/ghc-7.0.4 > /dev/null || die
+				pushd "${WORKDIR}"/ghc-bin-installer/ghc-${PV} > /dev/null || die
 				# fix the binaries so they run, on Solaris we need an
 				# LD_LIBRARY_PATH which has our prefix libdirs, on
 				# Darwin we need to replace the frameworks with our libs
@@ -389,6 +389,7 @@ src_prepare() {
 		eautoreconf
 
         epatch "${FILESDIR}/configure-7.2.2.patch"
+        epatch "${FILESDIR}/ghc-7.2.2-macos-linker.patch"
 	fi
 }
 
@@ -493,8 +494,8 @@ src_configure() {
 		# might point to ccache, once installed it will point to the users
 		# regular gcc.
 
-		export DYLD_LIBRARY_PATH="/Users/yasuyuki/Gentoo/usr/lib/:${DYLD_LIBRARY_PATH}"
-        export LIBRARY_PATH="/Users/yasuyuki//Gentoo/usr/lib/:${LIBRARY_PATH}"
+        # export DYLD_LIBRARY_PATH="${EPREFIX}/$(get_libdir):${EPREFIX}/usr/$(get_libdir):${DYLD_LIBRARY_PATH}"
+        # export LIBRARY_PATH="${EPREFIX}/$(get_libdir):${EPREFIX}/usr/$(get_libdir):${LIBRARY_PATH}"
 
 		econf --with-gcc=gcc || die "econf failed"
 	fi # ! use binary

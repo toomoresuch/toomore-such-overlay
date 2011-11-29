@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>haskell</herd>
+	<maintainer>
+		<email>haskell@gentoo.org</email>
+	</maintainer>
+	<longdescription>
+		Just pick which parts of your data structures you want indexed
+		using an easy to use template-haskell function. Spare yourself the
+		need to write, run, and maintain code that marshalls your data
+		to/from an external relational database just for efficient
+		queries. happstack-ixset relies on generics and TH to spare you
+		the boilerplate normally required for such tasks.
+	</longdescription>
+</pkgmetadata>
