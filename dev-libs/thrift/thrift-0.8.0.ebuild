@@ -16,7 +16,7 @@ ESVN_REPO_URI="http://svn.apache.org/repos/asf/thrift/trunk/"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~x86-macos"
-IUSE="cxx doc erlang java mono perl php python ruby +libevent source test vim-syntax"
+IUSE="cxx doc erlang java mono perl python ruby +libevent source test vim-syntax"
 
 RESTRICT_PYTHON_ABIS="3.*"
 
@@ -70,7 +70,6 @@ src_configure() {
 			$(use_with libevent libevent) \
 			$(use_with erlang erlang) \
 			$(use_with mono csharp) \
-			$(use_with php php) \
 			$(use_with ruby ruby) \
 			--with-zlib \
 			--with-gnu-ld \
